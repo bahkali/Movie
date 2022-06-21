@@ -1,0 +1,25 @@
+﻿@page "/test"
+
+<h3>Hello @StringUtilities.CustomToUpper(name)</h3>
+
+<button >Click me!</button>
+
+@foreach (var movie in movies){
+    <h3>Title: @movie.Title</h3>
+    <p>Release Date: @movie.ReleaseDate.ToString("dd MM yyyy")</p>
+}
+
+@code {
+    string name = "Kaly";
+
+    List<Movie> movies;
+
+    protected override void OnInitialized()
+    {
+        movies = new List<Movie>()
+            {
+                new Movie(){Title = "Spider Man: Far From Home", ReleaseDate = new DateTime(2019, 7, 2)},
+                new Movie(){Title = "Hulk", ReleaseDate = new DateTime(2010, 10, 4)},
+            };
+    }
+}
